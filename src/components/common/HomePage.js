@@ -28,9 +28,9 @@ class Home extends Component {
 
         <ul>
           <h3>Videos</h3>
-          {this.props.listOfVideos.map((v, i) => {
-            console.log(v)
-            return <li key={i}>{v}</li>;
+          {this.props.videos.map((v, i) => {
+            console.log("andrew", v)
+            return <li key={i}>{v.snippet.title}</li>;
           }
           )}
         </ul>
@@ -41,8 +41,9 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    listOfVideos: state.youtubeReducer
+    listOfVideos: state
   }
 }
 

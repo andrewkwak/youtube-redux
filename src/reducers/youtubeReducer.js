@@ -11,6 +11,11 @@ export default (state = [], action) => {
         ...state,
         Object.assign({}, action.videos)
       ]
+    case 'GET_VIDEOS_FULFILLED':
+      return {
+        ...state,
+        videos: action.payload
+      }
     default:
       return state
 
