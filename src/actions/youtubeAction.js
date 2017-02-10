@@ -5,14 +5,16 @@ export const getVideos = (videos) => {
   let value;
   return {
     type: 'GET_VIDEOS',
-    promise: new Promise(
-      function (resolve, reject) {
-        YTSearch({key: API_KEY, term: videos}, (video) => {
-          value = video
-          //console.log( value )
-          resolve( value )
-        });
-      }
-    )
+    payload: {
+      promise: new Promise(
+        function (resolve, reject) {
+          YTSearch({key: API_KEY, term: videos}, (video) => {
+            value = video
+            //console.log( value )
+            resolve( value )
+          });
+        }
+      )
+    }
   }
 }

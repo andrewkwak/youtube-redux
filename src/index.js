@@ -7,14 +7,16 @@ import logger from 'redux-logger';
 import rootReducer from './reducers';
 import { createStore, applyMiddleware } from 'redux';
 
-const store = createStore(rootReducer);
-
 import promiseMiddleware from 'redux-promise-middleware';
 
 const composeStoreWithMiddleware = applyMiddleware(
   promiseMiddleware(), logger()
 )(createStore);
 
+const store = createStore(
+    rootReducer,
+    {},
+    applyMiddleware( promiseMiddleware(), logger() ) );
 
 render (
   <Provider store={store}>

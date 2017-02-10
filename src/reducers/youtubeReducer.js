@@ -5,14 +5,14 @@ export default (state = [], action) => {
   console.log(action)
   switch(action.type) {
     case 'GET_VIDEOS':
-      console.log(action)
+      console.log(action.promise.then( (val) => { console.log( val ); } ))
       let value;
       return [
         ...state,
         Object.assign({}, action.videos)
       ]
     default:
-    return state
+      return state
 
     // case 'GET_VIDEOS_FULFILLED':
     //
